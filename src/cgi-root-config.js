@@ -13,8 +13,11 @@ const applications = constructApplications({
     return System.import(name);
   },
 });
-const layoutEngine = constructLayoutEngine({ routes, applications });
+const layoutEngine = constructLayoutEngine({ routes, applications, active: false });
 
 applications.forEach(registerApplication);
-layoutEngine.activate();
-start();
+
+System.import("@cgi/styleguide").then(() => {
+  layoutEngine.activate();
+  start();
+});
