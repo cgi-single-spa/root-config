@@ -17,9 +17,54 @@
 
   -->
 
+  <nav>
+    <ul>
+      <li><application name="@cgi/angular-navbar"></application></li>
+      <div class="spacer"></div>
+      <li><application name="@cgi/vue-minicart"></application></li>
+    </ul>
+  </nav>
+
   <main>
     <route default>
-      <application name="@single-spa/welcome"></application>
+      <application name="@cgi/angular-product"></application>
+      <application name="@cgi/react-popup"></application>
     </route>
+
+    <route path="cart">
+      <application name="@cgi/vue-cartpage"></application>
+    </route>
+    <application name="@cgi/react-footer"></application>
   </main>
+
+  <style>
+    body {
+      padding: 0px;
+      margin: 0px;
+      background-color: #efefef;
+    }
+    main {
+      margin-top: 80px;
+    }
+    nav {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      top: 0px;
+      background-color: #a6b5ed;
+      z-index: 9;
+    }
+    nav ul {
+      display: flex;
+      align-items: center;
+      list-style-type: none;
+      height: 100%;
+      padding-inline-end: 40px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+    .spacer {
+    flex: 1;
+    }
+  </style>
 </single-spa-router>
